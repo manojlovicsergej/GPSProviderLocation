@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView geoLatitudeTextView;
     private TextView geoLongitudeTextView;
+    private TextView geoAltitudeTextView;
 
     private Button getGpsLocationButton;
 
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         geoLatitudeTextView = findViewById(R.id.geoLatitude);
         geoLongitudeTextView = findViewById(R.id.geoLongitude);
         getGpsLocationButton = findViewById(R.id.getGpsLocationButton);
+        geoAltitudeTextView = findViewById(R.id.geoAltitude);
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
         //getting location on button click , refreshing state
@@ -54,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onLocationChanged(@NonNull Location location) {
                     geoLatitudeTextView.setText(String.valueOf(location.getLatitude()));
                     geoLongitudeTextView.setText(String.valueOf(location.getLongitude()));
+                    geoAltitudeTextView.setText(String.valueOf(location.getAltitude()));
                 }
             });
         } else {
